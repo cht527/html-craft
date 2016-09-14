@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script> 
+<script type="text/javascript" src="react/build/browser.min.js"></script> 
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4beeb355d55e5d0ad67cecbb42c88c23";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+
+</script>
+<style>
+	#hd, #ft {padding:20px 3px; background-color: #cccccc; text-align: center;}
+	.bd-lft, .bd-rgt, .bd-3-lr, .bd-3-ll, .bd-3-rr {margin:10px 0; min-width:400px;}
+	.main {background-color: #03a9f4; color:#ffffff;}
+	.aside, .aside-1, .aside-2 {background-color: #00bcd4; color:#ffffff;}
+	p {margin:0; padding:20px; text-align: center;}
+	
+	
+	/* 左侧栏固定宽度，右侧自适应 */
+	.bd-lft {
+	    zoom:1;
+	    overflow:hidden;
+	    padding-left:210px;
+	}
+	.bd-lft .aside {
+	    float:left;
+	    width:200px;
+	    margin-left:-100%; /*= -100%*/
+
+	    position:relative;
+	    left:-210px; /* = -parantNode.paddingLeft */
+	    _left: 0; /*IE6 hack*/
+	}
+	.bd-lft .main {
+	    float:left;
+	    width:100%;
+	}
+
+
+	/* 右侧栏固定宽度，左侧自适应 */
+	.bd-rgt {
+	    zoom:1;
+	    overflow:hidden;
+	    padding-right:210px;
+	}
+	.bd-rgt .aside {
+	    float:left;
+	    width:200px;
+		margin-left:-200px; /* = -this.width */
+
+	    position:relative;
+	    right:-210px; /* = -parantNode.paddingRight */
+	}
+	.bd-rgt .main {
+	    float:left;
+	    width:100%;
+	}
+
+
+	/* 左中右 三栏自适应 */
+	.bd-3-lr {
+	    zoom:1;
+	    overflow:hidden;
+	    padding-left:210px;
+	    padding-right:210px;
+	}
+	.bd-3-lr .main {
+		float:left;
+	    width:100%;
+	}
+	.bd-3-lr .aside-1 {
+		float: left;
+		width:200px;
+		margin-left: -100%;
+
+		position:relative;
+		left: -210px;
+		_left: 210px; /*IE6 hack*/
+	}
+	.bd-3-lr .aside-2 {
+		float: left;
+		width:200px;
+		margin-left: -200px;
+
+		position:relative;
+		right: -210px;
+	}
+
+	/* 都在左边，右侧自适应 */
+	.bd-3-ll {
+	    zoom:1;
+	    overflow:hidden;
+	    padding-left:420px;
+	}
+	.bd-3-ll .main {
+		float:left;
+	    width:100%;
+	}
+	.bd-3-ll .aside-1 {
+		float: left;
+		width:200px;
+		margin-left: -100%;
+
+		position:relative;
+		left: -420px;
+		_left: 0px; /*IE6 hack*/
+	}
+	.bd-3-ll .aside-2 {
+		float: left;
+		width:200px;
+		margin-left: -100%;
+
+		position:relative;
+		left: -210px;
+		_left: 210px; /*IE6 hack*/
+	}
+
+	/* 都在右边，左侧自适应 */
+	.bd-3-rr {
+	    zoom:1;
+	    overflow:hidden;
+	    padding-right:420px;
+	}
+	.bd-3-rr .main {
+		float:left;
+	    width:100%;
+	}
+	.bd-3-rr .aside-1 {
+		float: left;
+		width:200px;
+		margin-left: -200px;
+
+		position:relative;
+		right: -210px;
+	}
+	.bd-3-rr .aside-2 {
+		float: left;
+		width:200px;
+		margin-left: -200px;
+
+		position:relative;
+		right: -420px;
+	}
+</style>
+</head>
+<body>
+<div id="hd">头部</div>
+	
+	<div class="bd-lft">
+		<div class="main">
+			<p>主内容栏自适应宽度</p>
+		</div>
+
+		<div class="aside">
+			<p>侧边栏固定宽度</p>
+		</div>
+	</div>
+
+	<div class="bd-rgt">
+		<div class="main">
+			<p>主内容栏自适应宽度</p>
+		</div>
+
+		<div class="aside">
+			<p>侧边栏固定宽度</p>
+		</div>
+	</div>
+
+	<div class="bd-3-lr">
+		<div class="main">
+			<p>主内容栏自适应宽度</p>
+		</div>
+
+		<div class="aside-1">
+			<p>侧边栏1固定宽度</p>
+		</div>
+
+		<div class="aside-2">
+			<p>侧边栏2固定宽度</p>
+		</div>
+	</div>
+
+	<div class="bd-3-ll">
+		<div class="main">
+			<p>主内容栏自适应宽度</p>
+		</div>
+
+		<div class="aside-1">
+			<p>侧边栏1固定宽度</p>
+		</div>
+
+		<div class="aside-2">
+			<p>侧边栏2固定宽度</p>
+		</div>
+	</div>
+
+	<div class="bd-3-rr">
+		<div class="main">
+			<p>主内容栏自适应宽度</p>
+		</div>
+
+		<div class="aside-1">
+			<p>侧边栏1固定宽度</p>
+		</div>
+
+		<div class="aside-2">
+			<p>侧边栏2固定宽度</p>
+		</div>
+	</div>
+	
+	<div id="ft">底部</div>
+<script type="text/javascript">
+var ss=document.createElement("script");
+ss.src="./react/build/react.js";
+var scriptTag=document.getElementsByTagName("script")[0];
+scriptTag.parentNode.insertBefore(ss,scriptTag)
+</script>
+
+</body>
+</html>

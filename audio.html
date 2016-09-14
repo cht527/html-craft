@@ -1,0 +1,212 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Audio</title>
+  <style>
+  body {
+    background-color: #ccc;
+  }
+  .audio-outer {
+    margin: 10px 0;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 12px;
+    overflow: hidden;
+    color: #5b5b5b;
+    background-color: #fafafa;
+  }
+  .audio-outer audio {
+    display: none;
+  }
+  .audio-outer .icon-toggle {
+    float: left;
+    margin-top: 10px;
+    border: 10px solid;
+    border-color: transparent transparent transparent #5a5a5a;
+  }
+  .audio-outer .icon-toggle.pause {
+    width: 5px;
+    height: 20px;
+    margin-right: 5px;
+    border-width: 0 5px;
+    border-color: transparent #5a5a5a transparent #5a5a5a;
+  }
+  .audio-outer .icon-sounds {
+    float: right;
+    width: 20px;
+    height: 100%;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACuklEQVR4nO2a0XWjMBBFVUJKcAnuYN1B+AFm3lc6WHewLmE7sDvYdBB3kHSw7iDuwPtj5XC8M4OEwQhF7xx+DIz0LpJGjHGuqKioqKioqKgoHTHztm3b57n7MZuY+QjgAuATwJ6INnP3aRLVdb2Wfu8A+DqI6C0rEHVdrwF8SuckAF0QVVU9Pbq/o8qbB3CRzlsA/NRY7GjomtcAAHjtAeBHw69H9/8u3ZrXADjnXNM0VSCI/SM9DJZk3gLgRUSrgCmRNgTNfAgAr6ZpKiI6axCY+feUHgbLMh8DwMciog9jTdhMZGOY+szHAnDOuaqqnjQIRPQ3mRQZYn4IAOe+IIjTIYmpEGp+KADfhgaBiFYj2onvWKh5DQARHZqmqfraArBTABxGNxaiWPMagE7a601vxnqwGsvUj5CjbdvnWPMBAHohENFGib0bBUCsoQkA9JoBcBJiv+cEwMzxRPQy2TRICMCbAWClAHjJBgCAi1ZAufbzv2kwSjZICQCMtYCIDrfXM/MxKwCWIQh7guwAaNdrAKCU3LIEoO0HvhMAMRXmBuBk9FN8L8gKgJXWJADZLYLWxka6JysARHS2qj1K/F02ACwzWgYIqSksAgARfVhPX9oFAriMUh9k5mPIYVVr7wFARGfrHUB7EQLwerf5WGlPYiiAPvPO6elvlOE/RLEQpBidUbWy2rqW4KS4pym8BSsGgnL/JqQdAO9SzFHqAPcqFMLQ+AD2ST79rkIgDInLzFstXnJ/j/VBiI0H4KcWK4l/hSRZEGLiGMO+d68wuzQIgfdutAXPp8ukzXtJEKzr67peM/MfawqF7BWS0i0E6Zrr5zHqE1+sea8uBOl8wCcxF2Y+LmLYa/IQpHMBAHYP7u400io8Vlk8uTw/hW4BfBvjXv71mpm3s37tMZcWvbgVFRUVFRUtR/8AHNch0ICNgg0AAAAASUVORK5CYII=) no-repeat 50% 50%;;
+    -webkit-background-size: 26px;
+    background-size: 26px;
+  }
+  .audio-outer .icon-sounds.disabled {
+    background-image: url(data:image/png;base64,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);
+  }
+  .audio-outer .time {
+    float: left;
+    margin-right: 15px;
+    margin-top: 15px;
+  }
+  .audio-outer i {
+    font-style: normal;
+  }
+  .audio-outer .range {
+    height: 100%;
+    overflow: hidden;
+    padding: 0 14px 0 0;
+  }
+  .container {
+    position: relative;
+    height: 100%;
+  }
+  .audio-outer .progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 19px;
+    height: 2px;
+    margin: 0;
+    background-color: #9f9f9f;
+  }
+  .audio-outer .current-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #4285f4;
+  }
+  .audio-outer .icon-slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 40px;
+  }
+  .audio-outer .circle {
+    position: absolute;
+    left: 0;
+    top: 13px;
+    z-index: 1;
+    width: 14px;
+    height: 14px;
+    background-color: #4285f4;
+    border-radius: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div class="audio-outer">
+    <em id="toggle" class="icon-toggle"></em>
+    <em id="sounds" class="icon-sounds"></em>
+    <span class="time">
+      <time id="currentTime">0:00</time>
+      <i>/</i>
+      <time id="duration">3:00</time>
+    </span>
+    <div class="range">
+      <div class="container">
+        <a id="circle" class="icon-slider">
+          <em class="circle"></em>
+        </a>
+        <p id="progress" class="progress">
+          <span id="currentProgress" class="current-progress"></span>
+        </p>
+      </div>
+    </div>
+    <audio id="audio" src="./assign/audio.mp3"></audio>
+  </div>
+  <script>
+    var audio           = _$('audio');
+    var duration        = _$('duration');
+    var currentTime     = _$('currentTime');
+    var toggle          = _$('toggle');
+    var sounds          = _$('sounds');
+    var circle          = _$('circle');
+    var currentProgress = _$('currentProgress');
+    var dur             = 0;
+
+    function _$(id) {
+      return document.getElementById(id);
+    }
+
+    // 当元数据（比如分辨率和时长）被加载时运行的脚本
+    audio.addEventListener('loadedmetadata', function() {
+      dur = audio.duration;
+      var min = parseInt(dur / 60);
+      var sec = parseInt(dur % 60).toString();
+      duration.innerHTML = min + ':' + (sec.length === 1 ? '0' + sec : sec);
+    })
+
+    // 当播放位置改变时（比如当用户快进到媒介中一个不同的位置时）运行的脚本
+    audio.addEventListener('timeupdate', function() {
+      var crt = audio.currentTime
+      var min = parseInt(crt / 60);
+      var sec = parseInt(crt % 60).toString();
+      var progress = (crt/dur * 100).toFixed(2) + '%';
+      // currentTime 设置或返回音频/视频中的当前播放位置（以秒计）
+      currentTime.innerHTML = min + ':' + (sec.length === 1 ? '0' + sec : sec);
+      currentProgress.style.width = progress;
+      circle.style.marginLeft     = progress;
+    })
+
+    // 当音频播放结束后，回到初始状态，这样的话才能进行多次播放
+    audio.addEventListener('ended', function() {
+      toggle.className = 'icon-toggle';
+      currentTime.innerHTML = '0:00';
+      currentProgress.style.width = 0;
+      circle.style.marginLeft     = 0;
+      audio.load();
+      // 播放结束的时候一定要将 end 重置为 0, 这里 end 是手动滑动时需要用来计算的距离
+      end = 0;
+    });
+
+    // 播放与暂停
+    toggle.addEventListener('click', function(event) {
+      var t = event.currentTarget;
+      var cls = t.className;
+      if (/pause/.test(cls)) {
+        audio.pause();
+        t.className = 'icon-toggle';
+      } else {
+        audio.play();
+        t.className = 'icon-toggle pause';
+      }
+    });
+
+    // 静音控制
+    sounds.addEventListener('click', function(event) {
+      var t = event.currentTarget;
+      var cls = t.className;
+      if (/disabled/.test(cls)) {
+        audio.muted = false;
+        t.className = 'icon-sounds';
+      } else {
+        audio.muted = true;
+        t.className = 'icon-sounds disabled';
+      }
+    });
+
+    // 手动移动播放位置
+    var start = 0;
+    var end = 0;
+    var cw = _$('progress').clientWidth;
+    circle.addEventListener('touchstart', function(event) {
+      start = event.targetTouches[0].pageX - end;
+    });
+    circle.addEventListener('touchmove', function(event) {
+      end = event.targetTouches[0].pageX - start;
+      // 当移动到最右边的时候，设置结束的距离为整体进度减 1 的距离
+      // 因为, 如果直接设置为整体进度, 相当于播放结束了, 会执行 audio 的 ended 事件
+      if (end >= cw) {
+        end = cw - 1;
+      }
+      if (end <= 0) {
+        end = 0;
+      }
+      audio.currentTime = (end / cw) * dur;
+    });
+
+  </script>
+
+
+</body></html>
