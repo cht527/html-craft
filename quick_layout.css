@@ -166,6 +166,10 @@ a:hover { text-decoration: underline; }
 .lh22 { line-height: 22px; }
 .lh24 { line-height: 24px; }
 /* margin */
+.m0a{margin :0 auto;}
+.m10a{margin:10px auto;}
+.m15a{margin:15px auto;}
+.m20a{margin:20px auto;}
 .m0 { margin: 0; }
 .ml1 { margin-left: 1px; }
 .ml2 { margin-left: 2px; }
