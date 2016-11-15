@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+dot {
+    display: inline-block; 
+    height: 1em; line-height: 1;
+    vertical-align: -.25em;
+    overflow: hidden;
+}
+dot::before {
+    display: block;
+    content: '...\A..\A.';
+    white-space: pre-wrap;
+    animation: dot 3s infinite step-start both;
+}
+@keyframes dot {
+    33% { transform: translateY(-2em); }
+    66% { transform: translateY(-1em); }
+}
+</style>
+<!-- 
+使用自定义<dot>元素的好处是IE7,IE8浏览器根本就不认识这个元素，相关CSS会忽略，直接显示3个点；使用::before伪元素，display设置为block原因在于其他现代浏览器可以把原来的3个点推到看不见的最下面，显示的是content插入的第1行的3个点。于是，全浏览器都显示良好
+ -->
+<a href="javascript:" class="grebtn">订单提交中<dot>...</dot></a>
+
+</body>
+</html>
