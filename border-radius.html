@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document1</title>
+	<style>
+		.border{
+			width: 100px;
+			height: 100px;
+			background: red
+
+		}
+		.border1{
+			border-radius: 50% 50% 0 0 / 100%;
+		}
+		.border2{
+			border-radius:  0 0 50% 50% / 100%;
+		}
+		.border3{
+			border-radius:  100%  0 0 100% / 50%;
+		}
+		.border4{
+			border-radius:  0 100% 100% 0 / 50%;
+		}
+		.border5{
+			width: 0;
+			height: 0;
+			border: 100px solid red;
+			border-right-color: #fff 
+		}
+		.border6{
+			width: 0;
+			height: 0;
+			border: 100px solid red;
+			border-radius: 50%;
+			border-right-color: blue 
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="border border1">上半圆</div><br>
+	<div class="border border2">下半圆</div><br>
+	<div class="border border3">左半圆</div><br>
+	<div class="border border4">右半圆</div><br>
+	<div class="border5">方形切口</div>
+	<div class="border6">圆形切口</div>
+
+	
+</body>
+</html>
