@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>统计还可以输入多少字符</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<style>
+    .remainingCharacters{
+        color: green;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<section id="pie_section" class="code-wrap cf">
+      <div class="css-live-wrap">
+      <div class="star" title="致敬《CSS SECRET》作者，此实例是书中例子"></div>
+        <summary>饼图</summary>
+        <summary>利用伪类、线性渐变、旋转实现</summary>
+        <p>用动画实现百分比，动画处于暂停状态，必须使用负的动画演示来直接跳到动画中的任意时间点，并且定格在那里。-ps：负的延时值是合法的，与0s的延时类似，它意味着动画会立即开始播放，但会自动前进到延时值的绝对值处，就好像动画在过去已经播放了指定的时间一样，因此实际效果就是动画跳过指定时间而从中间开始播放了.</p>
+        <p>动画的第一帧将是唯一显示出的那一帧。在饼图上显出额比率就是我们的animation-delay值在总的动画持续时间中所占的比率。eg:animation-delay设置为-20s,为了显示出20%的比率，可以设置长达100s的时间。</p>
+        <p>动画是作用在伪元素上的，但我们最终希望内联样式可以设置在.pie元素上。不过由于div上并没有任何动画效果，我们可以用内联样式的方式为其设置animation-delay属性，然后再在伪元素上应用animation-delay：inherit</p>
+       
+        <div class="pie" id="pie" style="animation-delay:-20s">
+        	<p id="pieValue"></p>
+        </div>
+
+         <p>滑动改变比例：</p>
+        0%<input id="changeInput" type="range" min="0" max="100" step="0.1" />100%
+        
+
+      </div>
+      <style class="code" contenteditable="true">
+        .pie{
+          position: absolute;
+          top:60%;left: 50%;
+          transform:translate(-50%,-50%);
+          width: 200px;line-height:200px;height: 200px;
+          border-radius:50%;
+          text-align: center;
+          color: white;
+          font-size: 200%;
+          background-color:yellowgreen;
+          overflow:hidden;
+          background-image:
+          linear-gradient(to right, transparent 50%, #655 0);
+          cursor:pointer;
+        }
+        .pie:before{
+          content:"";
+          position:absolute;
+          top:0;left:50%;
+          width:50%;height:100%;
+          border-radius: 0 100% 100% 0 / 50%;
+
+          background-color: inherit;
+          transform-origin: left;
+          z-index:-1;
+          animation:spin 50s linear infinite,
+          			bg 100s step-end infinite; 
+          animation-play-state:paused;
+          animation-delay:inherit;
+
+        }
+      /*  .pie:hover:before{
+          transition:all 1s;
+          transform:rotate(.45turn);
+        }*/
+        @keyframes spin{
+        	to {transform:rotate(.5turn);}
+        }
+        @keyframes bg{
+        	50% {background:#655;}
+        }
+      </style>
+    </section>
+
+<script type="text/javascript">
+var changeInput=document.getElementById('changeInput');
+var pieValue = document.getElementById('pieValue');
+changeInput.onchange=function () {	
+	pie_text= parseFloat(changeInput.value),
+	pieELE = document.getElementById('pie');
+	pieELE.style.animationDelay="-"+pie_text+"s";
+	pieValue.innerText=pie_text+"%"
+
+}
+
+</script>
+
+
+
+</body>
+</html>
