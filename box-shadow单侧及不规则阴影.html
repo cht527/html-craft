@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>统计还可以输入多少字符</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<style>
+	/*---单侧投影---*/
+    .star{
+       width: 100px;height: 100px;
+       background: blue;
+       box-shadow: 0px 4px 4px -4px red; 
+    }
+    /*---双侧投影---*/
+    .star2{
+       width: 100px;height: 100px;
+       background: blue;
+       box-shadow: 4px 0px 4px -4px red,-4px 0px 4px -4px red; 
+    }
+    /*---不规则投影--drop-shadow()滤镜接受的参数基本上跟box-shadow属性是一样的，但不包括inset关键字，不包括扩张半径，也不支持逗号分隔多层投影的语法-*/
+    .star3{
+       width: 100px;height: 100px;
+       border-radius: 50% / 100% 100% 0 0;
+       background: blue;
+       -webkit-filter:drop-shadow(2px 2px 10px  blue);
+    }
+    .star4{
+    	width: 100px;height: 100px;
+       border-radius: 50% / 100% 100% 0 0;
+       background: blue;
+    	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    	filter: grayscale(100%);
+    }
+
+</style>
+</head>
+<body>
+<section id="pie_section" class="code-wrap cf">
+      <div class="star" title="致敬《CSS SECRET》作者，此实例是书中例子">
+       单侧投影
+      </div><br><br>   
+      <div class="star2" title="致敬《CSS SECRET》作者，此实例是书中例子">
+       双侧投影
+      </div><br><br> 
+      <div class="star3">
+      	不规则投影
+      </div> <br><br>  
+        <div class="star4">
+      	灰度
+      </div>       
+</section>
+
+<script type="text/javascript">
+
+          
+
+
+</script>
+
+
+
+</body>
+</html>
