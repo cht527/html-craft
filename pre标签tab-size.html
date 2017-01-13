@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>列表插入换行</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<style>
+	/*---code标签和pre标签之间的关系，两者的共同点是应用上类似，都主要应用于浏览器显示计算机中的源代码。 但是两者之间还是有很大不同的，code标签的一个功能是暗示浏览器code标签所包围的文本是计算机源代码，浏览器可以做出自己的 样式处理，pre标签则没有这项功能，但是pre标签可以保留文本中的空格和换行符，保留文本中的空格和换行符是计算机源代码显示 所必须的样式。那么这个时候我们可以想象一下，code标签和pre标签可不可以一块使用呢？答案是可以的，code标签和pre标签是 可以嵌套使用的，但是必须注意两者的嵌套顺序。---*/
+
+section div{
+	width: 200px;
+	height: 200px;
+}
+pre{
+	tab-size:2;  /*tab-size 控制tab缩进大小*/
+}
+
+</style>
+</head>
+<body>
+<section id="pie_section" class="code-wrap cf">
+   <div>
+	    <pre>
+	   		<code>
+	   			while(true){
+		        	var d = new Date();
+		        	if (d.getDate() == 1 && d.getMonth() == 3 ) {
+		        		alert("aaa");
+		        	};
+		        }
+		    </code>	 
+	   </pre>
+   </div>
+      
+</section>
+
+<script type="text/javascript">
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

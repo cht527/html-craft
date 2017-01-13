@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>checkbox</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<style>
+@keyframes spin{
+	to { transform:rotate(360deg);}
+}
+@keyframes spin-reverse{
+	from { transform:rotate(360deg);}
+}
+@-webkit-keyframes spin{
+	to { transform:rotate(360deg);}
+}
+@-webkit-keyframes spin-reverse{
+	from { transform:rotate(360deg);}
+}
+.path{
+   width: 300px;
+   height: 300px;
+   background: blue;
+   border-radius: 50%;
+}
+
+.path .avatar{
+	  transform-origin:50% 150px;
+     animation:spin 5s infinite linear;
+}
+.path .avatar img{
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   display: block;
+   margin: 0 auto;
+   animation:spin-reverse 5s infinite linear;
+}
+
+</style>
+</head>
+<body>
+<section id="pie_section" class="code-wrap cf">
+
+  <div class="path">
+  	<div class="avatar">
+  		<img src="./weixin.png" alt="Before">
+  	</div>
+  </div> 
+
+</section>
+
+<script type="text/javascript">
+  
+</script>
+
+
+
+</body>
+</html>

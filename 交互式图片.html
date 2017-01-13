@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>checkbox</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<style>
+/*---css 解决方案---*/
+.image-slider{
+	position: relative;
+	display: inline-block;
+}
+.image-slider > div{
+	position: absolute;
+	top: 0;bottom: 0;left: 0;
+	width: 50%;
+	overflow: hidden;
+	resize:horizontal;
+}
+.img-slider img{
+	display: block;
+}
+.image-slider > div:before{
+	content: '';
+	position: absolute;
+	bottom: 0;right: 0;
+	width: 12px;height: 12px;
+	background: white;
+	background: linear-gradient(-45deg,white 50%, transparent 0);
+	background-clip: content-box;
+	cursor:ew-resize;
+}
+
+/*---js 解决方案---*/
+
+/*#image-slider{
+	position: relative;
+	display: inline-block;
+}
+#image-slider > div{
+	position: absolute;
+	top: 0;bottom: 0;left: 0;
+	width: 50%;
+	overflow: hidden;
+	display: inline-block;
+}
+#image-slider img{
+	display: inline-block;
+	user-select:none;
+}
+#image-slider input{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	bottom: 0px
+}
+*/
+</style>
+</head>
+<body>
+<section id="pie_section" class="code-wrap cf">
+
+<!-- css 解决方案 -->
+  <div class="image-slider">
+  	<div>
+  		<img src="./2.png" alt="Before">
+  	</div>
+  	<img src="./6.png" alt="After">
+  </div> 
+
+
+  <!-- js 解决方案
+  <div id="image-slider">
+  	<div id="div-img">
+  		<img src="./2.png" alt="Before">
+  	</div>
+  	<img src="./6.png" alt="After">
+  </div> 
+  -->
+</section>
+
+<script type="text/javascript">
+  
+/*    var slider= document.getElementById('image-slider');
+    var div=document.getElementById('div-img');
+
+	var range=document.createElement('input');
+	range.type='range';
+	range.oninput=function(){
+		div.style.width=this.value+"%";
+	}
+	slider.appendChild(range);
+*/
+
+</script>
+
+
+
+</body>
+</html>
