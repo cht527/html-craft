@@ -34,6 +34,26 @@
 			border-radius: 50%;
 			border-right-color: blue 
 		}
+		.path{
+		  width: 100px;
+		  height: 100px;
+		  border: 1px solid red;
+		  margin: 100px auto
+		}
+		.path:before{
+		  content: '';
+		  border-top: 1px solid red;
+		  border-left: 1px solid red;
+		  width: 12px;
+		  height: 12px;
+		  transform: rotate(-45deg);
+		  -webkit-transform: rotate(-45deg);
+		  position: absolute;
+		  top: 10px;
+		  left: 3px;
+		  background: white
+
+		}
 
 	</style>
 </head>
@@ -43,8 +63,13 @@
 	<div class="border border2">下半圆</div><br>
 	<div class="border border3">左半圆</div><br>
 	<div class="border border4">右半圆</div><br>
-	<div class="border5">方形切口</div>
-	<div class="border6">圆形切口</div>
+	<div class="border5">方形切口</div><br>
+	<div class="border6">圆形切口</div><br>
+
+	<section  style="position:relative;width:120px;height:100px">
+	<div class="path"></div> 
+	</section>
+
 
 	
 </body>
