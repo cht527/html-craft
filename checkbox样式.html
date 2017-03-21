@@ -10,7 +10,7 @@ section div{
 	width: 200px;
 	height: 100px;
 }
-input[type="checkbox"] + label:before{
+.awesome[type="checkbox"] + label:before{
 	content: '\a0';
 	display: inline-block;
 	vertical-align: middle;
@@ -23,18 +23,18 @@ input[type="checkbox"] + label:before{
 	line-height: 1em;
 }
 /*---选中后的label：before样式---*/
-input[type='checkbox']:checked + label:before{
+.awesome[type='checkbox']:checked + label:before{
 	content: '\2713';
 	background: #398DEE;
 	color: white
 }
 /*---将实际的复选框隐藏--此处用的clip属性(也可以用visibility：hidden)，该属性将绝对定位的元素进行裁切，裁切成rect设置的样式，rect四个参数分别对应的是裁切元素的top\right\bottom\left*/
-input[type='checkbox']{
+.awesome[type='checkbox']{
 	position: absolute;
 	clip:rect(0,0,0,0);
 }
 /*---聚焦---*/
-input[type='checkbox']:focus + label:before{
+.awesome[type='checkbox']:focus + label:before{
 	box-shadow: 0 0 .1em .1em #58a
 }
 
@@ -53,7 +53,7 @@ input[type='checkbox']:disabled + label:before{
 <body>
 <section id="pie_section" class="code-wrap cf">
    <div>
-	   <input type="checkbox" id="awesome"  />
+	   <input type="checkbox" class="awesome" id="awesome"  />
 	   <label for="awesome">Awesome</label>
    </div>
     <div>
