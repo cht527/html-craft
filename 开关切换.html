@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>开关切换</title>
+<style>
+/*---------tab功能开关切换-------*/
+.switch-language-container{
+	width: 60px;
+	height: 26px;
+	background: #f4f4f4;
+	border-radius: 13px;
+	border: 1px solid #f4f4f4;
+	display: inline-block;
+	position: relative;
+}
+.switch-language{
+ 	background: #f4f4f4;
+ 	cursor: pointer;
+ 	width: 20px;
+ 	height: 20px;
+ 	position:absolute;
+ 	line-height: 20px;
+ 	text-align: center;
+ 	color: #999;
+ 	font-size: 0.8em
+}
+.selected{
+	background: blue;
+	cursor: default;
+	border-radius: 10px;
+	color: white;
+}
+#switch-en{
+	top: 3px;
+	left: 3px;
+}
+#switch-cn{
+	top: 3px;
+	right: 3px;
+}
+/*---------启用禁用功能开关切换-------*/
+.switch-container{
+	width: 60px;
+	height: 26px;
+	background: #ccc;
+	border-radius: 13px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+.switch-container-seleted{
+	background: #2db7f5;
+}
+.switch-font{
+	position: absolute;
+	font-size: 12px;
+	left: 40px;
+	top: 4px;
+	color: white
+}
+.switch-icon{
+	position:absolute;
+	content:'';
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: white;
+	left: 2px;
+	top: 3px;
+	transition:left .3s cubic-bezier(.78,.14,.15,.86),width .3s cubic-bezier(.78,.14,.15,.86);
+}
+
+</style>
+</head>
+<body>
+<p>---------tab功能开关切换-------</p>
+<br />
+<span class="switch-language-container">
+	<span class="switch-language selected" id="switch-en">EN</span>
+	<span class="switch-language" id="switch-cn">CN</span>
+</span>
+<br />
+<p>----------启用禁用功能开关切换----</p>
+<br />
+<span class="switch-container">
+	<span class="switch-icon"></span>
+	<span class="switch-font">关</span>
+</span>
+<script type="text/javascript" src="./jquery-1.11.1.min.js"></script>
+<script>
+/*---------tab功能开关切换-------*/
+$(".switch-language").on('click',function () {
+	if ($(this).attr('id')=='switch-cn') {
+		$('#switch-cn').addClass('selected');
+		$("#switch-en").removeClass('selected')
+	}else{
+		$('#switch-en').addClass('selected');
+		$("#switch-cn").removeClass('selected')
+	};
+})
+/*----------启用禁用功能开关切换----*/
+$(".switch-container").on('click',function () {
+	if ($(this).hasClass('switch-container-seleted')) {
+		$(this).removeClass('switch-container-seleted');
+		$('.switch-font').text('关').css('left','40px');
+		$('.switch-icon').css('left','2px');
+	}else{
+		$(this).addClass('switch-container-seleted');
+		$('.switch-font').text('开').css('left','4px');
+		$('.switch-icon').css('left','38px')
+
+	};
+})
+</script>
+
+
+</body>
+</html>
