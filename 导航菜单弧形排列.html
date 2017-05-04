@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>导航菜单弧形排列</title>
+<style>
+* {margin: 0; padding: 0;}
+li {list-style: none;}
+body {
+	font: 12px/1.2 'Microsoft YaHei', Verdana, Arial, Helvetica, sans-serif;
+	color: #ddd;
+	background: black;
+}
+a:link, a:visited {text-decoration: none;}
+a:hover, a:active {text-decoration: underline;}
+#dv_nav {
+	padding-top: 30px;
+	width: 500px;
+	height: 540px;
+	background: #e0e0e0;
+}
+#dv_nav h2 {display: none;}
+
+#ul_nav li {padding-bottom: 24px;}
+	
+#ul_nav li li {
+	padding-bottom: 0px;  /** 清除上一条规则对二级菜单的影响 **/
+	margin-top: 10px;
+}
+
+#ul_nav h3 a, #ul_nav h3 span {
+	font-size: 16px;
+	font-weight: 700;
+	color: #aaa;
+}
+#ul_nav li li a {color: #999;}
+
+#ul_nav h3 {background: #555;}
+#ul_nav li li {background: #222;}
+
+
+#dv_placeholder div {
+	float: right;
+	clear: right;
+}
+	
+#dv_placeholder .n1 {width: 185px; height: 10px;}
+#dv_placeholder .n2 {width: 195px; height: 10px;}
+#dv_placeholder .n3 {width: 200px; height: 10px;}
+#dv_placeholder .n4 {width: 205px; height: 10px;}
+#dv_placeholder .n5 {width: 210px; height: 10px;}
+#dv_placeholder .n6 {width: 215px; height: 10px;}
+#dv_placeholder .n7 {width: 220px; height: 10px;}
+#dv_placeholder .n8 {width: 225px; height: 10px;}
+#dv_placeholder .n9 {width: 230px; height: 10px;}
+#dv_placeholder .n10 {width: 240px; height: 10px;}
+#dv_placeholder .n11 {width: 245px; height: 10px;}
+#dv_placeholder .n12 {width: 250px; height: 10px;}
+#dv_placeholder .n13 {width: 255px; height: 10px;}
+#dv_placeholder .n14 {width: 260px; height: 10px;}
+#dv_placeholder .n15 {width: 265px; height: 10px;}
+#dv_placeholder .n16 {width: 270px; height: 10px;}
+#dv_placeholder .n17 {width: 275px; height: 10px;}
+#dv_placeholder .n18 {width: 280px; height: 10px;}
+#dv_placeholder .n19 {width: 285px; height: 10px;}
+#dv_placeholder .n20 {width: 290px; height: 10px;}
+#dv_placeholder .n21 {width: 295px; height: 10px;}
+#dv_placeholder .n22 {width: 300px; height: 10px;}
+#dv_placeholder .n23 {width: 305px; height: 10px;}
+#dv_placeholder .n24 {width: 310px; height: 10px;}
+#dv_placeholder .n25 {width: 315px; height: 10px;}
+#dv_placeholder .n26 {width: 320px; height: 10px;}
+#dv_placeholder .n27 {width: 325px; height: 10px;}
+#dv_placeholder div {
+	background: yellow;
+	opacity: 0.2; filter: Alpha(Opacity=20);
+}
+#dv_nav {
+	text-align: right;  /** 各菜单项右对齐 **/
+}
+</style>
+</head>
+
+<body>
+
+<div id="dv_nav">
+	<h2>导航</h2>
+	<!--====================占位符===================================-->
+	<div id="dv_placeholder">
+		<div class="n1"></div>
+		<div class="n2"></div>
+		<div class="n3"></div>
+		<div class="n4"></div>
+		<div class="n5"></div>
+		<div class="n6"></div>
+		<div class="n7"></div>
+		<div class="n8"></div>
+		<div class="n9"></div>
+		<div class="n10"></div>
+		<div class="n11"></div>
+		<div class="n12"></div>
+		<div class="n13"></div>
+		<div class="n14"></div>
+		<div class="n15"></div>
+		<div class="n16"></div>
+		<div class="n17"></div>
+		<div class="n18"></div>
+		<div class="n19"></div>
+		<div class="n20"></div>
+		<div class="n21"></div>
+		<div class="n22"></div>
+		<div class="n23"></div>
+		<div class="n24"></div>
+		<div class="n25"></div>
+		<div class="n26"></div>
+		<div class="n27"></div>
+	</div>
+	<!--=======================================================-->
+	<ul id="ul_nav">
+		<li>
+			<h3><span>洗护系列</span></h3>
+			<ul>
+				<li><a href="###">赋活水养</a></li>
+				<li><a href="###">动感卷曲</a></li>
+				<li><a href="###">……</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3><span>造型系列</span></h3>
+			<ul>
+				<li><a href="###">珠光亮泽</a></li>
+				<li><a href="###">酷炫凌乱</a></li>
+				<li><a href="###">……</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3><a href="###">促销信息</a></h3>
+		</li>
+		<li>
+			<h3><span>秀发护理小TIPS</span></h3>
+			<ul>
+				<li><a href="###">洗发知多少</a></li>
+				<li><a href="###">护发怎么办</a></li>
+				<li><a href="###">型发知多少</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3><a href="###">VIDEO</a></h3>
+		</li>
+	</ul>
+</div>
+
+
+</body>
+</html>
