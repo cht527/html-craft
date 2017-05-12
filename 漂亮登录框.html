@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>漂亮的登录框</title>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css'>
+<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
+</head>
+<body>
+  <div class="row center-align">
+    <h2>Welcome!</h2>
+    <h4>Login to enter.</h4>
+  </div>
+  <div class="row">
+    <div class="col s12 m4 offset-m4 l4 offset-l4">
+      <div class="card-panel">
+        <div class="row">
+          <form action="#" method="" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="mdi-action-account-circle prefix"></i>
+                <input id="email" type="email" class="validate"/>
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="mdi-communication-vpn-key prefix"></i>
+                <input id="password" type="password" class="validate"/>
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <input type="checkbox" id="remember-chk" />
+              <label for="remember-chk">记住密码</label>
+            </div>
+            <div class="row center-align">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="mdi-content-send right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
