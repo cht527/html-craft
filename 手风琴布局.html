@@ -1,0 +1,237 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>手风琴布局效果</title>
+<style>
+#vertical_container{
+  border:1px solid #eee;
+  border-radius: 2px;
+  width: 250px;
+  height: 100px;
+  margin:  10px auto
+
+}
+#vertical_container div {
+  height:25%;
+  overflow: hidden;
+   -moz-transition:height 0.4s ease-out;
+  -webkit-transition:height 0.4s ease-out;
+  -o-transition:height 0.4s ease-out;
+  transition:height 0.4s ease-out;
+}
+#vertical_container:hover div {
+  height: 20px; 
+}
+#vertical_container:hover div:hover {
+  height: 200px;
+  overflow: auto; 
+}
+#a {background-color: #CCFF99; }
+#b {background-color:#FF6633; }
+#c {background-color: #FFCC00; }
+#d {background-color:#99FFFF; }
+p {margin: 1em 25px; }
+
+
+
+#horizon_container{
+  width:500px;
+  overflow:hidden;
+  list-style:none;
+  margin-bottom:10px;
+  text-shadow:1px 1px 1px rgba(0,0,0,0.25);
+}
+#horizon_container li{
+  float:left;
+  width:20%;
+  overflow:hidden;
+  height:250px;
+  -moz-transition:width 0.4s ease-out;
+  -webkit-transition:width 0.4s ease-out;
+  -o-transition:width 0.4s ease-out;
+  transition:width 0.4s ease-out;
+}
+#horizon_container li:first-of-type{
+  -moz-border-radius:10px 0 0 10px;
+  -webkit-border-radius:10px 0 0 10px;
+  -o-border-radius:10px 0 0 10px;
+  border-radius:10px 0 0 10px;
+}
+#horizon_container li:last-of-type{
+  -moz-border-radius:0 10px 10px 0;
+  -webkit-border-radius:0 10px 10px 0;
+  -o-border-radius:0 10px 10px 0;
+  border-radius:0 10px 10px 0;
+}
+#horizon_container li div{
+  padding:10px;
+}
+#horizon_container:hover li{
+  width:10%;
+}
+#horizon_container li:hover{
+  width:60%;
+}
+#aa{
+background:red;
+color:white;
+}
+#bb{
+background:orange;
+color:white;
+}
+#cc{
+background:yellow;
+color:#333;
+text-shadow:none;
+}
+#dd{
+background:green;
+color:white;
+}
+#ee{
+background:blue;
+color:white;
+}
+
+
+
+input{display: none;}
+label{
+  display: block;
+  line-height: 40px; 
+  border-bottom: 1px solid #ddd; 
+  cursor:pointer;
+  font-size: 15px; 
+  font-weight: bold;
+}
+.list > ul{
+  display: none; 
+  -webkit-transition:all .5s linear;
+  -moz-transition:all .5s linear;
+  -ms-transition:all .5s linear;
+  -o-transition:all .5s linear;
+  transition:all .5s linear;
+}
+#list1:checked + ul{display: block;}
+#list2:checked + ul{display: block;}
+#list3:checked + ul{display: block;}
+#list4:checked + ul{display: block;}
+</style>
+</head>
+<body>
+<div>1、竖向布局</div>
+<div id="vertical_container">
+  <div id="a">
+    <span>第一格</span>
+    <p></p>
+    <p>第一格内容</p>
+  </div>
+  <div id="b">
+    <span>第二格</span>
+    <p></p>
+    <p>第二格内容</p>
+  </div>
+  <div id="c">
+    <span>第三格</span>
+    <p></p>
+    <p>第三格内容</p>
+  </div>
+  <div id="d">
+    <span>第四格</span>
+    <p></p>
+    <p>第四格内容</p>
+  </div>
+</div>
+
+<div>2、横向布局</div>
+<ul id="horizon_container">
+  <li id="aa">
+    <div>
+      <span>第一格</span>
+      <p></p>
+      <p>第一格内容</p>
+    </div>
+  </li>
+  
+  <li id="bb">
+    <div>
+      <span>第二格</span>
+      <p></p>
+      <p>第二格内容</p>
+    </div>
+  </li>
+  
+  <li id="cc">
+    <div>
+      <span>第三格</span>
+      <p></p>
+      <p>第三格内容</p>
+    </div>
+  </li>
+  
+  <li id="dd">
+    <div>
+      <span>第四格</span>
+      <p></p>
+      <p>第四格内容</p>
+    </div>
+  </li>
+
+  <li id="ee">
+    <div>
+      <span>第五格</span>
+      <p></p>
+      <p>第五格内容</p>
+    </div>
+  </li>
+  
+</ul>
+
+<div>三、菜单导航---点击手风琴效果</div>
+<div class="list">
+
+  <label for="list1">我的同学</label>
+  <input type="radio" name="list" id="list1" checked="chekced"/>
+  <ul>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+  </ul>
+
+  <label for="list2">我的同学</label>
+  <input type="radio" name="list" id="list2"/>
+  <ul>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+  </ul>
+
+  <label for="list3">我的同学</label>
+  <input type="radio" name="list" id="list3"/>
+  <ul>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+  </ul>
+
+  <label for="list4">我的同学</label>
+  <input type="radio" name="list" id="list4"/>
+  <ul>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+    <li><a href="">同学名字</a></li>
+  </ul>
+
+</div>
+
+</body>
+</html>
