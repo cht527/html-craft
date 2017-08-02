@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>css波浪效果</title>
+<!-- <link rel="stylesheet" href="txt.wav.css"> -->
+<style>
+
+
+
+.wave {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(118, 218, 255);
+    border-radius: 50%;
+}
+.wave:before,.wave::after{
+		content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: 0;
+        left: 50%;
+        background-color: rgba(255, 255, 255, .4);
+        border-radius: 45%;
+        transform: translate(-50%, -70%) rotate(0);
+        animation: rotate 6s linear infinite;
+        z-index: 10;
+}
+@keyframes rotate {
+    50% {
+        transform: translate(-50%, -73%) rotate(180deg);
+    } 100% {
+        transform: translate(-50%, -70%) rotate(360deg);
+    }
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="wave"></div>
+</div>
+
+
+</script>
+</body>
+</html>
