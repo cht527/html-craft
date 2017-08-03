@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js获取最终样式</title>
+<!-- <link rel="stylesheet" href="txt.wav.css"> -->
+<style>
+#a{
+	background-color: #fff;
+}
+</style>
+</head>
+<body>
+<div id="a"></div>
+<!-- <script src='txt.wav.js'></script> -->
+<script>
+function camelLize(str) {
+	return str.replace(/-(\w)/g,function (strMatch,p) {
+				console.log(strMatch);
+				console.log(p);
+				return p.toUpperCase();
+			})
+}
+
+function getStyle(ele,property) {
+	if(!ele || !property){
+		return false
+	}
+	//--获取css样式
+	var value=ele.style[camelLize(property)];
+
+	// 无内联样式
+	if (!value) {
+		if (document.defaultView && document.defaultView.getComputedStyle) {
+			css= document.defaultView.getComputedStyle(ele,null);
+			console.log(css);
+			value = css ? css.getPropertyValue(property) : null;
+		}
+	}
+
+	return value;
+}
+var a=document.getElementById('a');
+console.log(getStyle(a,'background-color'));
+</script>
+</body>
+</html>
