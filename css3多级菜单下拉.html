@@ -1,0 +1,124 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多级CSS3动画下拉菜单</title>
+	<style type="text/css">
+	a{color:blue; text-decoration: none;}
+	a:hover{color: orange;}
+	h1, ul,li,a{margin: 0; padding: 0; }
+    li{list-style: none;}
+	.clearfix:before, .clearfix:after{display: table; content:"";}
+	.clearfix:after{clear: both;}
+	.clearfix{zoom:1;}
+	.site-navigation{width:360px; margin:0 auto; background-color: #FF7300;}
+    /* 一级菜单基本样式 */
+	.site-navigation ul{margin: 0; padding: 0;}
+	.site-navigation ul li{list-style: none; float: left; position: relative;}
+	.site-navigation ul li a{padding: 8px 20px; margin: 0; color: #fff; white-space: nowrap; display: block; -webkit-transition:all .3s ease-in-out; transition:all .3s ease-in-out;}
+    /* 二级菜单 */
+        /* 第一个元素 设置三角形图标 */
+	.site-navigation ul ul > li:first-child > a:before{content:""; position: absolute; left:40px; top:-6px; border-left:6px dashed transparent; border-right:6px dashed transparent; border-bottom:6px solid #E7E7E7; font-size: 0; line-height: 0;}
+    /* 三级菜单 */
+        /* 第一个元素 设置三角形图标 */
+	.site-navigation ul ul ul > li:first-child > a:before{left:-6px; top:17px; border: 0; border-top:6px dashed transparent; border-bottom:6px dashed transparent; border-right:6px solid #E7E7E7;}
+    /* 一级菜单 鼠标移动到li 改变样式 */
+	.site-navigation ul li:hover >a ,.site-navigation ul li a:hover{background-color: #333;}
+    /* 二级菜单样式 */
+	.site-navigation ul ul{min-width: 90px; position: absolute; left:0; top:100%; visibility: hidden; opacity: 0; -webkit-transition:all .3s ease-in-out; transition:all .3s ease-in-out; margin-top:20px;  background-color: #F0F0F0; z-index: 3;}
+     /* 一级菜单 鼠标移动到li 显示二级菜单 */
+	.site-navigation ul li:hover > ul{visibility: visible; opacity: 1; margin-top:0;}
+	.site-navigation ul ul a{color: #3D3D3D; min-width: 100px;}
+	.site-navigation ul ul a:hover, .site-navigation ul ul li:hover > a {background: #fff;}
+	.site-navigation ul ul li{float: none;}
+	.site-navigation ul ul ul{position: absolute; left:100%; top:0; margin-top: 0; margin-left: 20px;}
+	.site-navigation ul ul li:hover > ul{margin-left:0;}
+	</style>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<div class="site-navigation clearfix">
+		<ul class="clearfix">
+			<li><a href="">My Page1</a></li>
+			<li><a href="">My Page2</a>
+				<ul>
+					<li><a href="">My Child1</a>
+						<ul>
+							<li><a href="">More Chid1</a>
+								<ul>
+									<li><a href="">More Chid1</a></li>
+									<li><a href="">More Chid2</a></li>
+									<li><a href="">More Chid3</a></li>
+									<li><a href="">More Chid4</a></li>
+								</ul>
+							</li>
+							<li><a href="">More Chid2</a></li>
+							<li><a href="">More Chid3</a></li>
+							<li><a href="">More Chid4</a></li>
+						</ul>
+					</li>
+					<li><a href="">My Child2</a></li>
+					<li><a href="">My Child3</a></li>
+					<li><a href="">My Child4</a></li>
+				</ul>
+			</li>
+			<li><a href="">My Page3</a></li>
+
+		</ul>
+	</div>
+	<br/>
+	
+	<style type="text/css">
+      
+        .nav,.nav ul{list-style:none;margin:0;padding:0}
+        .nav{position:relative}
+        
+        .nav li{float:left;position:relative}
+        .nav li a{-webkit-transition:0.5s;transition:0.5s;background-color:#7770B4;border:1px solid #6E67A6;color:#FFF;display:block;font-size:16px;line-height:35px;padding:5px 20px;text-decoration:none; }
+        .nav ul{left:0; position:absolute;top:46px; min-width: 120px; visibility: hidden; opacity: 0; z-index: 2;}
+        .nav li ul li{opacity:0; -webkit-transition:0.5s;transition:0.5s;width:100%;-webkit-transition-delay:0s;transition-delay:0s}
+        .nav li:hover > ul{opacity: 1; visibility: visible;}
+        .nav li:hover > ul > li{opacity:1;-webkit-transition-delay:0.5s;transition-delay:0.5s}
+        .nav ul li a{background:#7770B4;border-color:#6E67A6;color:#fff;line-height:1px;-webkit-transition:1.5s;transition:1.5s; white-space: nowrap;}
+        .nav li:hover > ul > li a{line-height:35px}
+        .nav ul li a:hover{background:#8CCA33;background:gradient(linear,0% 0%,0% 95%,from(rgba(255,255,255,0.5)),to(rgba(255,255,255,0)))}
+        .nav ul ul{left:100%; top:0;}
+
+	</style>
+	<div class="example">
+    <ul class="nav">
+            <li><a href="">My Page1</a></li>
+            <li><a href="">My Page2</a>
+                <ul>
+                    <li><a href="">My Child1</a>
+                        <ul>
+                            <li><a href="">More Chid1</a>
+                                <ul>
+                                    <li><a href="">More Chid1</a></li>
+                                    <li><a href="">More Chid2</a></li>
+                                    <li><a href="">More Chid3</a></li>
+                                    <li><a href="">More Chid4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">More Chid2</a></li>
+                            <li><a href="">More Chid3</a></li>
+                            <li><a href="">More Chid4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">My Child2</a></li>
+                    <li><a href="">My Child3</a></li>
+                    <li><a href="">My Child4</a></li>
+                </ul>
+            </li>
+            <li><a href="">My Page3</a></li>
+            <li><a href="">My Page4</a></li>
+     
+    </ul>
+    <div style="clear:both"></div>
+</div>
+
+    
+</body>
+</html>
