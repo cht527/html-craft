@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>css滤镜实用</title>
+
+<style>
+.hr{
+    height: 20px;
+}
+/* 1、生成图像阴影 */
+.avator{
+ 		 position: relative;
+ 		 background: url("./head.png") no-repeat center center;
+    	background-size: 100% 100%;
+    	width: 110px;
+    	height: 110px;
+    	border-radius: 5px;
+ }
+.avator::after{
+        content: "";
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        background-size: 100% 100%;
+        filter: blur(10px) brightness(80%) opacity(.8);
+        -webkit-filter: blur(10px) brightness(80%) opacity(.8);
+        z-index: -1;
+}
+/* 2、blur 混合 contrast 产生融合效果 */
+
+/* 2.1 燃烧的火焰 */
+ .fire {
+    width: 0;
+    height: 0;
+    border-radius: 45%;
+    box-sizing: border-box;
+    border: 100px solid #000;
+    border-bottom: 100px solid transparent;
+    background-color: #b5932f;
+    transform: scaleX(.4);
+    /* 
+    增加了 filter: blur(20px) contrast(30); 之后，为什么纯色黑色和黄色的中间，生成了一条红色的边框？
+    这里我咨询了几个设计师、前端同事，得到的答复大概是两个不同滤镜的色值处理算法在边界处叠加作用得到了另外一种颜色。
+    */
+    filter: blur(20px) contrast(30);
+    -webkit-filter: blur(20px) contrast(30);
+}
+/* 2.2 文字融合效果 */
+.container {
+    width: 1000px;
+    height: 100px;
+    position: relative;
+    padding: 2em;
+    filter: contrast(20);
+    background-color: black;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'microsoft yahei';
+    color: white;
+    font-size: 1rem;
+    line-height: 1;
+    animation: letterspacing 5s infinite alternate ease-in-out;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    letter-spacing: 1rem;
+}
+
+@keyframes letterspacing {
+    0% {
+        letter-spacing: -1rem;
+        filter: blur(.3rem);
+    }
+
+    50% {
+        filter: blur(.5rem);
+    }
+
+    100% {
+        letter-spacing: .5rem;
+        filter: blur(0rem);
+        color: #fff;
+    }
+}
+</style>
+</head>
+<body>
+<!--
+1、生成图像阴影
+原理就是，利用伪元素，生成一个与原图一样大小的新图叠加在原图之下，然后利用滤镜模糊 filter: blur() 配合其他的亮度/对比度，透明度等滤镜，制作出一个虚幻的影子，伪装成原图的阴影效果。
+-->
+<div class="avator"></div>
+
+<!--
+2、blur 混合 contrast 产生融合效果
+当他们“合体”的时候，产生了奇妙的融合现象，通过对比度滤镜把高斯模糊的模糊边缘给干掉，利用高斯模糊实现融合效果。
+filter: blur()： 给图像设置高斯模糊效果。
+filter: contrast()： 调整图像的对比度。
+上述效果的实现基于两点：
+
+图形是在被设置了 filter: contrast() 的画布背景上进行动画的
+进行动画的图形被设置了 filter: blur()（ 进行动画的图形的父元素需要是被设置了 filter: contrast() 的画布）
+-->
+<div class="hr"></div>
+<!--2.1  燃烧的火焰 -->
+<div class="fire"></div>
+
+<!--2.2  文字融合动画 -->
+<div class="container">
+  <h1>看遍世界上所有的美景，经历生命里每一个良辰</h1>
+</div>
+</body>
+</html>
