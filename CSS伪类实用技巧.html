@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS伪类实用技巧</title>
+
+    <style>
+        .hr{height: 30px;}
+        /* 1、利用 CSS 的 content 属性 attr 抓取资料 */
+        .attr{
+            width:100px;
+            border:1px solid red;  
+            position:relative;
+        }
+        .attr:hover:after{
+            content:attr(data-msg);
+            position:absolute;
+            font-size: 12px;
+            width:200%;
+            line-height:30px;
+            text-align:center;
+            left:0;
+            top:25px;
+            border:1px solid green;
+        }
+        /* 2、使用属性选择器选择空链接 */
+        a[href^="http"]:empty::before {
+          content: attr(href);
+        }
+        /* 3、利用用 :valid 和 :invalid 来做表单即时校验 */
+
+        .form-group {
+          width: 32rem;
+          padding: 1rem;
+          border: 1px solid transparent;
+        }
+        .form-group:hover {
+            border-color: #eee;
+            transition: border .2s;
+        }
+        .form-group label {
+            display: block;
+            font-weight: normal;
+        }
+        .form-group input,.form-group textarea {
+            display: block;
+            width: 100%;
+            line-height: 2rem;
+            padding: .5rem .5rem .5rem 1rem;
+            border: 1px solid #ccc;
+            outline: none; 
+        }
+        .form-group input:valid,.form-group textarea:valid{
+            border-color: #429032;
+            box-shadow: inset 5px 0 0 #429032;
+        }
+        .form-group input:invalid,.form-group textarea:invalid{
+            border-color: #D61D1D;
+            box-shadow: inset 5px 0 0 #D61D1D;
+        }
+        /* 4、用:nth-child(even/odd)来实现隔行变色*/
+        tbody tr:nth-of-type(2n){  
+            background-color: red;
+        }
+
+        tbody tr:nth-of-type(2n+1){
+            background-color: green;
+        } 
+        /* 5、用::selection来美化选中文本*/ 
+        ::selection{
+          color: #fff;
+          background-color: #6bc30d;
+         } 
+         /* 6、placeholder美化 */
+        input::-webkit-input-placeholder{
+            color: #f00;
+        }
+        input::-moz-placeholder{
+             color: #f00;
+        }
+        input:-ms-input-placeholder{
+             color: #f00;
+        }
+  
+        /* 8、target实现 折叠面板 */
+        .collapse .collapse-body {
+            display: none;
+        }
+        .collapse-body:target {
+            display: block;
+        }
+        /* 9、改变input 焦点颜色 */
+        input {
+          caret-color: auto;
+          display: block;
+          margin-bottom: .5em;
+        }
+    
+        input.custom:focus {
+          color: red;
+        }
+       /*  input.custom {
+         caret-color: red;
+       } */
+       
+    </style>
+</head>
+<body>
+<!--1、利用 CSS 的 content 属性 attr 抓取资料 -->
+<!--content:" " 多半会留空，但其实可以在里面写上 attr 抓资料-->
+
+<div class="attr"  data-msg="Open this file in Github Desktop">  hover </div>
+
+<div class="hr"></div>
+
+<!--2、使用属性选择器选择空链接 -->
+<!--显示没有文本值但是 href 属性具有链接的 a 元素的链接-->
+<a href="http://www.baidu.com"></a>
+
+<div class="hr"></div>
+
+<!--3、利用用 :valid 和 :invalid 来做表单即时校验-->
+<!--
+    :required 伪类指定具有required 属性的表单元素
+    :valid 伪类指定一个通过匹配正确的所要求的表单元素
+    :invalid 伪类指定一个不匹配指定要求的表单元素
+-->
+<div class="container">
+    <div class="row" style="margin-top: 2rem;">
+      <form>
+        <div class="form-group">
+          <label>name</label>
+          <input type="text" required placeholder="请输入名称">
+        </div>
+        <div class="form-group">
+          <label>email</label>
+          <input type="email" required placeholder="请输入邮箱">
+        </div>
+        <div class="form-group">
+          <label>homepage</label>
+          <input type="url" required placeholder="请输入博客url">
+        </div>
+        <div class="form-group">
+          <label>Comments</label>
+          <textarea required></textarea>
+        </div>
+      </form>
+    </div>
+</div>
+
+<div class="hr"></div>
+
+<!--4、用:nth-child(even/odd)来实现隔行变色 -->
+<table>
+  <tbody>
+    <tr>
+      <td>1</td><td>1.1</td>
+    </tr>
+    <tr>
+      <td>2</td><td>2.1</td>
+    </tr>
+    <tr>
+      <td>3</td><td>3.1</td>
+    </tr>
+    <tr>
+      <td>4</td><td>4.1</td>
+    </tr>
+    <tr>
+      <td>5</td><td>5.1</td>
+    </tr>
+    <tr>
+      <td>6</td><td>6.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="hr"></div>
+
+<!--5、用::selection来美化选中文本::selection{
+ color: #fff;
+ background-color: #6bc30d;
+} -->
+<div class="selection">
+    选中这些文字会变色哦
+</div>
+
+<div class="hr"></div>
+
+<!--6、用::placeholder来美化占位符-->
+<div> 参考实例3 的demo ，placeholder已经变色</div>
+
+<div class="hr"></div>
+
+
+
+<!--8、用:target来实现折叠面板-->
+<!--:target是文档的内部链接，即 URL 后面跟有锚名称 #，指向文档内某个具体的元素。-->
+<div class="row" style="margin:20px auto;">
+      <div class="collapse">
+        <a class="collapse-target" href="#modal1">target 1</a>
+        <div class="collapse-body" id="modal1">
+          <p>
+            在前面两篇文章《你不知道的CSS（一）》和《你不知道的CSS（二）》中大致介绍了一些CSS方面比较隐晦的但又很实用的技巧。相信这些技巧会为大家在项目实践中带来一定的帮助，本文作为《你不知道的CSS》系列的第三篇文章，将继续在CSS技巧方面进行探讨，不同于前两篇的是，本文将着重介绍CSS中伪类和伪元素在项目中的应用场景。伪类相信大家最熟悉也是用的最多的莫过于:hover,
+            :active, :focus之类的，因为这些在平常的项目中太常用了（然而我目前依然见过还有用js去添加.hover类来变化背景色的同学😴）。而伪元素如:before, :after相信大家也用的烂熟了。 当然对于比较常见的伪类（元素）不在本文的讨论范围类，本文主要介绍一些生僻的但是又非常实用的伪类(元素)。CSS的世界已经变天了，抛开过去，拥抱变化吧~
+          </p>
+        </div>
+      </div>
+      <div class="collapse">
+        <a class="collapse-target" href="#modal2">target 2</a>
+        <div class="collapse-body" id="modal2">
+          <p>
+            在前面两篇文章《你不知道的CSS（一）》和《你不知道的CSS（二）》中大致介绍了一些CSS方面比较隐晦的但又很实用的技巧。相信这些技巧会为大家在项目实践中带来一定的帮助，本文作为《你不知道的CSS》系列的第三篇文章，将继续在CSS技巧方面进行探讨，不同于前两篇的是，本文将着重介绍CSS中伪类和伪元素在项目中的应用场景。伪类相信大家最熟悉也是用的最多的莫过于:hover,
+            :active, :focus之类的，因为这些在平常的项目中太常用了（然而我目前依然见过还有用js去添加.hover类来变化背景色的同学😴）。而伪元素如:before, :after相信大家也用的烂熟了。 当然对于比较常见的伪类（元素）不在本文的讨论范围类，本文主要介绍一些生僻的但是又非常实用的伪类(元素)。CSS的世界已经变天了，抛开过去，拥抱变化吧~
+          </p>
+        </div>
+      </div>
+ 
+    </div>
+
+<!--9、改变 input 焦点光标的颜色-->
+<!--
+    有两种方法，一是用:focus 伪类 改变color，但这样会让焦点光标和文字都变色
+    二是用caret-color属性设置颜色，但目前测试了一下浏览器兼容性不算好
+-->
+<input class="custom" value="I have a custom caret color!" />
+
+<div class="hr"></div>
+
+
+</body>
+
+</html>
