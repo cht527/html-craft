@@ -3,104 +3,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>简易时间轴</title>
+<title>时间轴</title>
 <style>
-.diary-date,.diary-date-line{
-margin: 10px auto;display:flex;display:box;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex; justify-content: space-around;align-items: center;
-}
-.diary-date{
-	width: 54%;
-}
-.diary-date-line{
-	width: 65%;
-	justify-content: space-between;
-}
-.line-item{
-	display: inline-block;
-}
-.line-bigPoint{
-	display: inline-block;
-	width: 0;
-	height: 0;
-	border:3px solid;
-	border-radius: 50%
-}
-.date-item{
-	font-size: 1.2em;
-	font-family: cursive;
-	color: #337ab7;
-	
-}
-.date-item:hover{
-	cursor: pointer;
-	text-shadow:1px 1px 2px #337ab7;
-}
-
-
-#modal_load{
-	z-index: 1050;
-	position: fixed;
-	top: 20%;
-	display: none;
-	left: 45%;
-	text-align:center;
-	font-size: 2em
-	
-}
-
-.blur{
-    -webkit-filter: blur(4px);
-    filter: blur(10px);
-}
+.times {display:block;margin:15px 0;}/*首先，我们要创建一个容器class*/
+.times ul {margin-left:25px;border-left:2px solid #ddd;list-style-type:none;padding: 0}/*利用ul标签的特性，设置外边框左移25px，左边边框是2px粗的实心线，颜色一般要浅一点*/
+.times ul li {width:100%;margin-left:-12px;line-height:20px;font-weight:normal;}/*一般情况，通过li标签控制圆点回到时间线上，然后控制要出现的文字大小和是否粗体*/
+.times ul li b {width:8px;height:8px;background:#fff;border:2px solid #555;margin:5px;border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;overflow:hidden;display:inline-block;}/*利用处理加粗以外没有其它特别属性b标签做时间轴的圆点。*/
+.times ul li span {padding-left:7px;font-size:12px;line-height:20px;color:#555;overflow: hidden;}/*设置span标签的属性，让它来做时间显示，加一点边距，使时间显示离时间线远一点*/
+.times ul li:hover b {border:2px solid #ff6600;}/*注意这一行，前面的li标签后面加了一个:hover伪属性，意思是鼠标移上来，激活后面的属性，这样可以设置鼠标移动到整个时间范围的时候，时间点和时间显示会变色*/
+.times ul li:hover span {color:#ff6600;}/*同上*/
+.times ul li p {padding-left:15px;font-size:14px;line-height:25px;}/*这里利用段落标签p做文字介绍*/
 </style>
 </head>
 <body>
-<div id="test3">
-	<div class="diary-date">
-	  <span class="date-item">2013</span>
-	  <span class="date-item">2014</span>
-	  <span class="date-item">2015</span>
-	  <span class="date-item">2016</span>
-	  <span class="date-item">2017</span>
-	</div>
-	<div class="diary-date-line">
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">..................</span>
-	</div>
-	<div id="content">
-	<div class="diary-date-line">
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">..................</span>
-	</div>
-	<div class="diary-date-line">
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">..................</span>
-	</div>
-	<div class="diary-date-line">
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">.................<span class="line-bigPoint"></span></span>
-	  <span class="line-item">..................</span>
-	</div>
+<div class="times">
+    <ul>
+        <li><b></b><span>2010-01-01</span><p>这里是2010年哟</p></li>
+        <!--b标签不输入内容，span标签内输入时间不限制格式，p标签内输入介绍内容。注意，标签内不能使用div分割-->
+        <li><b></b><span>2011-01-01</span><p>这里是2011年哟</p></li>
+        <li><b></b><span>2012-01-01</span><p>这里是2012年哟</p></li>
+        <li><b></b><span>2013-01-01</span><p>这里是2013年哟</p></li>
+        <li><b></b><span>2014-01-01</span><p>这里是2014年哟</p></li>
+    </ul>
 </div>
 </div>
 	
-
-<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
 
 </body>
 </html>
