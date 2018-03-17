@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS渐变实现波浪下划线</title>
+
+    <style>
+    
+       /* 文字下划线波浪样式 */
+       .wave{
+            position: relative;
+       }
+       .wave:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, transparent, transparent 45%, red, transparent 55%, transparent 100%),
+                        linear-gradient(45deg, transparent, transparent 45%, red, transparent 55%, transparent 100%);
+            /* background-size 宽和高均为 height属性的2倍*/
+            background-size: 10px 10px;
+
+       }
+        
+    </style>
+</head>
+<body>
+
+<!--实现文字的波浪线效果-->
+<!--
+ text-decoration 这个属性并不陌生，在重置 a 标签的默认样式时，我们经常要这样写：text-decoration: none; 可能对它了解的人也很少，实际上 text-decoration 是一个复合属性，由 line、style 和 color 组成。
+line 只有 underline (下划线)、overline (上划线)和 line-through (删除线)
+ -->
+ <span class="wave">我是有波浪线的文字，你羡慕吗？</span>
+</body>
+
+</html>

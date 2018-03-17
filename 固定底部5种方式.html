@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>css固定底部5种方式</title>
+<style>
+
+/* method 1 */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+  background-color: #ddd;
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 50px;
+}
+.footer{background: #aaa}
+.push{background-color: red}
+
+/* method 2 */
+/* 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.content {
+  min-height: 100%;
+}
+.content-inside {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+.footer {
+  height: 50px;
+  margin-top: -50px;
+}
+ */
+
+/* method 3 */
+/* 
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+}
+ */
+
+ /* method 4 */
+ /*
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1;
+}
+ */
+
+ /* method 5 */
+
+ /*
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+ */
+</style>
+</head>
+<body>
+<!-- method 1  全局增加一个负值下边距等于底部高度
+有一个全局的元素包含除了底部之外的所有内容。它有一个负值下边距等于底部的高度
+需要一个额外的元素.push等于底部的高度，来防止内容覆盖到底部的元素。这个push元素是智能的，它并没有占用到底部的利用，而是通过全局加了一个负边距来填充
+ -->
+<div class="wrapper">
+
+     <div class="content" style="height: 400px;width: 200px">content</div>
+
+    <div class="push"></div>
+</div>
+<footer class="footer"></footer>
+
+<!-- method 2 底部元素增加负值上边距
+减少了一个.push的元素，但还是需要增加多一层的元素包裹内容，并给他一个内边距使其等于底部的高度，防止内容覆盖到底部的内容。
+
+ -->
+<!-- 
+<div class="content">
+    <div class="content-inside">
+      content
+    </div>
+</div>
+<footer class="footer"></footer>
+-->
+
+<!-- 方法三：使用calc()计算内容的高度 -->
+<!-- 
+
+  <div class="content">
+    content
+  </div>
+  <footer class="footer"></footer>
+
+ -->
+
+ <!-- 方法四：使用flexbox -->
+<!--
+
+  <div class="content">
+    content
+  </div>
+  <footer class="footer"></footer>
+
+-->
+
+ <!-- 方法五：使用grid布局 -->
+  <!--
+
+  <div class="content">
+    content
+  </div>
+  <footer class="footer"></footer>
+
+
+  -->
+</body>
+</html>
