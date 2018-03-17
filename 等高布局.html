@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script> 
+<style type="text/css">
+.container1{
+    overflow:hidden;
+}
+.a{
+    float: left;
+    width: 200px;
+    border: 1px solid red;
+    margin-right: 10px;
+    padding-bottom: 800px;
+    margin-bottom: -800px
+}
+.container2{
+    display: table;
+    border-spacing: 10px; 
+}
+.b{
+    display: table-cell;
+    width: 200px;
+    border-radius: 5px;
+    border:1px solid blue;
+}
+.container3{
+    display: flex;
+}
+.c{
+    border:1px solid #aaa;
+    width: 200px;
+    margin-right: 10px;
+}
+</style>
+</head>
+<body>
+<div>方法一、设置padding margin</div>
+<div>原理：父元素的高度是这么计算的：最高的内容的高度！那父元素的里面都是浮动元素，高度怎么计算呢？这里由于父元素用了overflow:hidden;触发了bfc或者haslayout，所以浮动元素的高度也应该被计算，同时，也把超出父元素的那一部分截掉了</div>
+<div>缺点：底部border没了，因为设置的padding值过大，导致高度变得很大</div>
+<div class="container1">
+    <div class="a">adsfasdfjlkja<br></div>
+    <div class="a">adsfasdfjlkja<br>adsfasdfjlkja<br></div>
+    <div class="a">adsfasdfjlkja<br>adsfasdfjlkja<br>adsfasdfjlkja<br></div>
+    <div class="a">adsfasdfjlkja<br>adsfasdfjlkja<br>adsfasdfjlkja<br>adsfasdfjlkja<br></div>
+</div>
+
+<div>方法二、table</div>
+<div>原理：每个div都是一个td 等高</div>
+<div class="container2">
+    <div class="b">adfasdfasdf<br></div>
+    <div class="b">adfasdfasdf<br>adfasdfasdf<br></div>
+    <div class="b">adfasdfasdf<br>adfasdfasdf<br>adfasdfasdf<br></div>
+    <div class="b">adfasdfasdf<br>adfasdfasdf<br>adfasdfasdf<br>adfasdfasdf<br></div>
+</div>
+
+<div>方法三、flex</div>
+<div>原理：align-items默认为stretch，辅轴上将所有子项目拉伸为同一高度（或宽度）以保持对齐。</div>
+<div class="container3">
+    <div class="c">aasdjflkajsdflkaj<br></div>
+    <div class="c">aasdjflkajsdflkaj<br>aasdjflkajsdflkaj<br></div>
+    <div class="c">aasdjflkajsdflkaj<br>aasdjflkajsdflkaj<br>aasdjflkajsdflkaj<br></div>
+    <div class="c">aasdjflkajsdflkaj<br>aasdjflkajsdflkaj<br>aasdjflkajsdflkaj<br>aasdjflkajsdflkaj<br></div>
+</div>
+</body>
+</html>
