@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>modal弹出后滚动条隐藏</title>
+</head>
+<body>
+	<h1>modal弹出后 滚动条隐藏</h1>
+	<pre>
+		//Chrome，Safari 和 Opera 而言，可以使用以下的 CSS：
+		.container::-webkit-scrollbar {
+		  display: none;
+		}
+
+		//IE 或 Edge 可用以下代码:
+		.container {
+		  -ms-overflow-style: none;
+		}
+		//Firefox，很不幸，没有任何办法隐藏滚动条
+	</pre>
+</body>
+</html>
