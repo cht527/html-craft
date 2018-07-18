@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Chrome 61 已经支持scroll-behavior属性，该属性指定滚动框(scrolling box)的滚动行为，当滚动行为由浏览器或者是CSSOM API发出时（例如点击锚点之后进行跳转）就会触发这个属性，但如果是用户滚动滚动条等操作时并不会触发这个属性。 当我们在根元素上使用该属性时，该属性会作用于 viewport 上
+-->
+<head>
+    <title>scroll-behavior属性实例</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html,
+        body,
+        button {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            height: 100vh;
+            line-height: 100vh;
+            font-size: 100px;
+            color: #fff;
+            text-align: center;
+        }
+        section:nth-child(1) {
+            background-color: #1abc9c;
+        }
+        section:nth-child(2) {
+            background-color: #3e98db;
+        }
+        section:nth-child(3) {
+            background-color: #8344ad;
+        }
+        section:nth-child(4) {
+            background-color: #f1c40f;
+        }
+        section:nth-child(5) {
+            background-color: #2c4e50;
+        }
+        button {
+            position: fixed;
+            left: 50%;
+            margin-left: -50px;
+            top: 5px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            border-radius: 5px;
+            background-color: #f00;
+            border: none;
+        }
+        button[data-type="next"] {
+            top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+    <section>5</section>
+    <div class="buttons">
+        <button type="button" data-type="prev">向上</button>
+        <button type="button" data-type="next">向下</button>
+    </div>
+
+    <script>
+        (function () {
+            var buttons = document.querySelector('.buttons');
+            buttons.addEventListener('click', function (e) {
+                var target = e.target,
+                    type = target.dataset.type;
+                type && window.scrollBy(0, (type === 'prev' ? -1 : 1) * window.innerHeight);
+            }, false)
+        })();
+    </script>
+</body>
+
+</html>
