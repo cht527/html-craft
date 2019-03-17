@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>宽高自适应</title>
+<style>
+	  .parent{
+      position: relative;
+      width: 20%;
+      background: red;
+    }
+    .parent:after{
+      content: '';
+      display: block;
+      padding-bottom:100%;
+      
+    }
+    .content{
+      position:absolute;
+      left:0;top:0;
+      width: 100%;
+      word-break: break-word
+    }
+
+    
+
+
+</style>
+</head>
+<body>
+  <h1>方法一：</h1>
+   <div class="parent">
+        <div class="content">
+          我是内容区域，可以根据内容保持流动性
+        </div>
+   </div>
+  <pre>
+   
+      css:
+      <br>
+      .parent{
+        position: relative;
+        width: 20%;
+        background: red;
+      }
+      .parent:after{
+        content: '';
+        display: block;
+        padding-bottom:100%;
+        
+      }
+      .content{
+        position:absolute;//浮动也可以：float: left;
+        left:0;top:0;
+        width: 100%;
+      }
+
+
+  </pre>
+
+  <h1>方法二：vw单位直接写死</h1>
+
+
+
+
+
+</body>
+</html>
