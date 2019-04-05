@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#clipPath{
+			width: 200px;
+			height: 200px;
+			background-color: #666
+		}
+	</style>
+</head>
+<body>
+	<div id="clipPath"></div>
+<pre>
+function polygon(n=4,r=50) {
+			var deg = 2 * Math.PI / n;
+			var arr = [];
+			for (var i=1;i<=n;i++) {
+				var degree= deg*i;
+				var x = r + r*Math.cos(degree) + '%';
+				var y = r + r*Math.sin(degree) + '%';
+				arr.push(x+ ' ' +y);
+			}
+			return `polygon(${arr.join(',')})`
+		}
+		cc.style.clipPath=polygon(6);	
+
+</pre>
+<script>
+	function polygon(n=4,r=100) {
+			var deg = 2 * Math.PI / n;
+			var arr = [];
+			for (var i=1;i<=n;i++) {
+				var degree= deg*i;
+				var x = r + r*Math.cos(degree) + '%';
+				var y = r + r*Math.sin(degree) + '%';
+				arr.push(x+ ' ' +y);
+			}
+			return `polygon(${arr.join(',')})`
+		}
+		cc.style.clipPath=polygon(6);
+</script>
+</body>
+</html>
