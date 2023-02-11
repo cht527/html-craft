@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 实现节流</title>
+    <style>
+        html {
+            height: 50%;
+        }
+        
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+        
+        .btn {
+            width: 60px;
+            height: 36px;
+            cursor: pointer;
+        }
+        
+        #btn1 {
+            animation: throttle 2s step-end forwards;
+        }
+        
+        #btn1:active {
+            animation: none;
+        }
+        
+        @keyframes throttle {
+            from {
+                color: #666;
+                opacity: .99;
+                pointer-events: none;
+            }
+            to {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+        
+        #btn2 {
+            opacity: .99;
+            transition: opacity 2s;
+        }
+        
+        #btn2:not(:disabled):active {
+            opacity: 1;
+            transition: 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        仅限于点击行为，很多时候，节流可能会用在滚动事件或者键盘事件上，像这些场景就用传统方式实现就行
+    </section>
+    <div>
+        <span id="count1">0</span>
+        <button type="button" id="btn1" class="btn">click</button>
+
+    </div>
+
+    <div>
+        <span id="count2">0</span>
+        <button type="button" id="btn2" class="btn">click</button>
+
+    </div>
+
+
+</body>
+<script>
+    const btnEle1 = document.querySelector('#btn1');
+    const countEle1 = document.querySelector('#count1');
+
+    const btnEle2 = document.querySelector('#btn2');
+    const countEle2 = document.querySelector('#count2');
+
+    btnEle1.addEventListener('click', (e) => {
+        e.stopPropagation();
+        countEle1.innerHTML = Number(countEle1.innerHTML) + 1
+    })
+
+
+
+
+    // 方法二 监听事件
+    // 通过:active去触发transition变化，然后通过监听transition回调去动态设置按钮的禁用状态
+    // 定义一个无关紧要的过渡属性，比如opacity
+
+
+    // 过渡开始
+    btnEle2.addEventListener('transitionstart', function(ev) {
+            ev.target.disabled = true
+        })
+        // 过渡结束
+    btnEle2.addEventListener('transitionend', function(ev) {
+        ev.target.disabled = false
+    })
+
+    btnEle2.addEventListener('click', () => {
+        countEle2.innerHTML = Number(countEle2.innerHTML) + 1
+    })
+</script>
+
+<script>
+</script>
+
+</html>
