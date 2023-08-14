@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多行布局</title>
+    <style>
+        .flex-reverse {
+            display: flex;
+            width: 600px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            width: calc((100% - 100px) / 4);
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+        }
+        .item:nth-child(n+5){
+            order: calc(8 - var(--i));
+        }
+    </style>
+</head>
+<body>
+    <!-- 场景一
+        1 2 3 4 
+        8 7 6 5
+     -->
+    <div class="flex-reverse">
+        <div class="item" style="--i: 1">1</div>
+        <div class="item" style="--i: 2">2</div>
+        <div class="item" style="--i: 3">3</div>
+        <div class="item" style="--i: 4">4</div>
+        <div class="item" style="--i: 5">5</div>
+        <div class="item" style="--i: 6">6</div>
+        <div class="item" style="--i: 7">7</div>
+        <div class="item" style="--i: 8">8</div>
+    </div>
+    
+</body>
+</html>
