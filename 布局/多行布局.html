@@ -1,45 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>多行布局</title>
     <style>
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+        }
+        .flex-item{
+            width: calc((100% - 100px) / 4);
+        }
+
+        .flex-item:nth-child(n+5) {
+            order: calc(8 - var(--i));
+        }
+
         .flex-reverse {
             display: flex;
             width: 600px;
             gap: 20px;
             flex-wrap: wrap;
         }
-        .item{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: aqua;
-            width: calc((100% - 100px) / 4);
-            aspect-ratio: 1/1;
-            border-radius: 50%;
+
+        .grid-reverse {
+            width: 600px;
+            display: grid;
+            gap: 20px;
+            grid-template-areas:
+                'a1 a2 a3 a4'
+                'a8 a7 a6 a5';
         }
-        .item:nth-child(n+5){
-            order: calc(8 - var(--i));
+        .grid-item{
+            grid-area: var(--i);
+            background-color: antiquewhite;
+
+        }
+
+        /* 折返布局 */
+
+        .recurse {
+            display: flex;
+            width: 600px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .recurse-item{
+            width: calc((100% - 100px) / 4);
+            order: var(--i);
+            background-color: aquamarine;
+        }
+        .recurse-item:nth-child(8n + 5){
+            order: calc(var(--i) + 3)
+        }
+        .recurse-item:nth-child(8n + 6){
+            order: calc(var(--i) + 1)
+        }
+        .recurse-item:nth-child(8n + 7){
+            order: calc(var(--i) - 1)
+        }
+        .recurse-item:nth-child(8n + 8){
+            order: calc(var(--i) - 3)
         }
     </style>
 </head>
+
 <body>
     <!-- 场景一
         1 2 3 4 
         8 7 6 5
      -->
     <div class="flex-reverse">
-        <div class="item" style="--i: 1">1</div>
-        <div class="item" style="--i: 2">2</div>
-        <div class="item" style="--i: 3">3</div>
-        <div class="item" style="--i: 4">4</div>
-        <div class="item" style="--i: 5">5</div>
-        <div class="item" style="--i: 6">6</div>
-        <div class="item" style="--i: 7">7</div>
-        <div class="item" style="--i: 8">8</div>
+        <div class="item flex-item" style="--i: 1">1</div>
+        <div class="item flex-item" style="--i: 2">2</div>
+        <div class="item flex-item" style="--i: 3">3</div>
+        <div class="item flex-item" style="--i: 4">4</div>
+        <div class="item flex-item" style="--i: 5">5</div>
+        <div class="item flex-item" style="--i: 6">6</div>
+        <div class="item flex-item" style="--i: 7">7</div>
+        <div class="item flex-item" style="--i: 8">8</div>
     </div>
-    
+    <div class="grid-reverse">
+        <div class="item grid-item" style="--i: a1">1</div>
+        <div class="item grid-item" style="--i: a2">2</div>
+        <div class="item grid-item" style="--i: a3">3</div>
+        <div class="item grid-item" style="--i: a4">4</div>
+        <div class="item grid-item" style="--i: a5">5</div>
+        <div class="item grid-item" style="--i: a6">6</div>
+        <div class="item grid-item" style="--i: a7">7</div>
+        <div class="item grid-item" style="--i: a8">8</div>
+    </div>
+    <!-- 场景二 循环折返
+        1  2  3  4 
+        8  7  6  5
+        9  10 11 12
+        16 15 14 13
+     -->
+     <div class="recurse">
+        <div class="item recurse-item" style="--i: 1">1</div>
+        <div class="item recurse-item" style="--i: 2">2</div>
+        <div class="item recurse-item" style="--i: 3">3</div>
+        <div class="item recurse-item" style="--i: 4">4</div>
+        <div class="item recurse-item" style="--i: 5">5</div>
+        <div class="item recurse-item" style="--i: 6">6</div>
+        <div class="item recurse-item" style="--i: 7">7</div>
+        <div class="item recurse-item" style="--i: 8">8</div>
+        <div class="item recurse-item" style="--i: 9">9</div>
+        <div class="item recurse-item" style="--i: 10">10</div>
+        <div class="item recurse-item" style="--i: 11">11</div>
+        <div class="item recurse-item" style="--i: 12">12</div>
+        <div class="item recurse-item" style="--i: 13">13</div>
+        <div class="item recurse-item" style="--i: 14">14</div>
+        <div class="item recurse-item" style="--i: 15">15</div>
+        <div class="item recurse-item" style="--i: 16">16</div>
+     </div>
 </body>
+
 </html>
